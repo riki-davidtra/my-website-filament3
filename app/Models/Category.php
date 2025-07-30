@@ -11,6 +11,8 @@ class Category extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $primaryKey = 'uuid';
+
     protected $guarded = [];
 
     public $incrementing = true;
@@ -25,13 +27,8 @@ class Category extends Model
         return (string) Uuid::uuid7();
     }
 
-    public function getRouteKeyName()
-    {
-        return 'uuid';
-    }
-
     public function posts()
     {
-        return $this->hasMany(Post::class, 'category_id', 'uuid');
+        return $this->hasMany(Post::class);
     }
 }

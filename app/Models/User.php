@@ -80,4 +80,9 @@ class User extends Authenticatable implements HasAvatar
 
         return $this->avatar_url ? Storage::url("$this->avatar_url") : null;
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
