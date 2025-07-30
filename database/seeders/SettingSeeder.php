@@ -25,7 +25,7 @@ class SettingSeeder extends Seeder
                 'name'       => 'Site Name',
                 'key'        => 'site_name',
                 'type'       => 'text',
-                'value'      => 'Jaman IT',
+                'value'      => 'Jumpbe IT',
             ],
             [
                 'setting_id' => $settings['siteConfig']->uuid,
@@ -54,12 +54,12 @@ class SettingSeeder extends Seeder
                 'key'        => 'meta',
                 'type'       => 'textarea',
                 'value'      => '<meta name="description" content="Discover various smart and handy services, all free and instantly accessible." />
-    <meta name     = "keywords" content       = "jaman it, services online" />
-    <meta name     = "author" content         = "Jaman IT Team" />
-    <meta property = "og:title" content       = "Jaman IT - Explore Our Free Online Services" />
+    <meta name     = "keywords" content       = "jumpbe it, services online" />
+    <meta name     = "author" content         = "Jumpbe IT Team" />
+    <meta property = "og:title" content       = "Jumpbe IT - Explore Our Free Online Services" />
     <meta property = "og:description" content = "Discover various smart and handy services, all free and instantly accessible." />
     <meta property = "og:image" content       = "images/favicon.png" />
-    <meta property = "og:url" content         = "https://github.com/jamanit" />
+    <meta property = "og:url" content         = "https://rport.my.id" />
     <meta property = "og:type" content        = "website" />',
             ],
             [
@@ -67,7 +67,7 @@ class SettingSeeder extends Seeder
                 'name'       => 'About',
                 'key'        => 'about',
                 'type'       => 'textarea_editor',
-                'value'      => '<p>Jaman IT menyediakan berbagai layanan online gratis yang memudahkan hidup Anda. Mulai dari kompresi gambar, konversi dokumen, hingga layanan berbasis AI — semua tersedia secara instan dan tanpa biaya. Kami percaya bahwa teknologi harus dapat diakses oleh siapa saja, kapan saja.</p>',
+                'value'      => '<p>Jumpbe IT menyediakan berbagai layanan online gratis yang memudahkan hidup Anda. Mulai dari kompresi gambar, konversi dokumen, hingga layanan berbasis AI — semua tersedia secara instan dan tanpa biaya. Kami percaya bahwa teknologi harus dapat diakses oleh siapa saja, kapan saja.</p>',
             ],
             [
                 'setting_id' => $settings['contact']->uuid,
@@ -81,7 +81,7 @@ class SettingSeeder extends Seeder
                 'name'       => 'Email',
                 'key'        => 'email',
                 'type'       => 'email',
-                'value'      => 'itservice.jaman@gmail.com',
+                'value'      => 'jumpbe.id@gmail.com',
             ],
             [
                 'setting_id' => $settings['contact']->uuid,
