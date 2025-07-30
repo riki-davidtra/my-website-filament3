@@ -10,11 +10,11 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
 Route::get('/resume/{name?}/{lang?}', [App\Http\Controllers\ResumeController::class, 'index'])->name('resume.index');
 
-Route::get('/auth/{provider}/redirect', [App\Http\Controllers\SocialiteController::class, 'redirect'])->name('socialite.redirect');
-Route::get('/auth/{provider}/callback', [App\Http\Controllers\SocialiteController::class, 'callback'])->name('socialite.callback');
-Route::get('/auth/create-password', [App\Http\Controllers\SocialiteController::class, 'create_password'])->name('create-password');
-Route::post('/auth/create-password/update', [App\Http\Controllers\SocialiteController::class, 'create_password_update'])->name('create-password.update');
-Route::get('/auth/create-password/skip', [App\Http\Controllers\SocialiteController::class, 'create_password_skip'])->name('create-password.skip');
+Route::get('/auth/redirect/{provider}', [App\Http\Controllers\AuthController::class, 'redirect'])->name('auth.redirect');
+Route::get('/auth/callback/{provider}', [App\Http\Controllers\AuthController::class, 'callback'])->name('auth.callback');
+Route::get('/auth/create-password', [App\Http\Controllers\AuthController::class, 'create_password'])->name('auth.create-password');
+Route::post('/auth/create-password/update', [App\Http\Controllers\AuthController::class, 'create_password_update'])->name('auth.create-password.update');
+Route::get('/auth/create-password/skip', [App\Http\Controllers\AuthController::class, 'create_password_skip'])->name('auth.create-password.skip');
 
 Route::post('/loadMorePost', [App\Http\Controllers\HomeController::class, 'loadMorePost'])->name('home.loadMorePost');
 Route::post('/send-message', [App\Http\Controllers\HomeController::class, 'sendMessage'])->name('home.sendMessage');
@@ -32,3 +32,8 @@ Route::delete('/chat-ai/clear-history', [App\Http\Controllers\ChatAIController::
 
 Route::get('/word-to-pdf', [App\Http\Controllers\WordToPdfController::class, 'index'])->name('word-to-pdf.index');
 Route::post('/word-to-pdf/convert', [App\Http\Controllers\WordToPdfController::class, 'convert'])->name('word-to-pdf.convert');
+
+Route::get('/google-contact', [App\Http\Controllers\GoogleContactController::class, 'index'])->name('google-contact.index');
+Route::get('/google-contact/redirect', [App\Http\Controllers\GoogleContactController::class, 'redirect'])->name('google-contact.redirect');
+Route::get('/google-contact/callback', [App\Http\Controllers\GoogleContactController::class, 'callback'])->name('google-contact.callback');
+Route::get('/google-contact/refresh', [App\Http\Controllers\GoogleContactController::class, 'refresh'])->name('google-contact.refresh');

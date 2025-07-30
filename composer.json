@@ -11,6 +11,7 @@
         "barryvdh/laravel-dompdf": "^3.1",
         "cloudconvert/cloudconvert-php": "^3.4",
         "filament/filament": "^3.3",
+        "google/apiclient": "^2.18",
         "joaopaulolndev/filament-edit-profile": "^1.0",
         "laravel/framework": "^12.0",
         "laravel/socialite": "*",
