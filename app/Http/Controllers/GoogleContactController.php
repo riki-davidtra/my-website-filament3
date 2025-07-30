@@ -33,9 +33,9 @@ class GoogleContactController extends Controller
     protected function createGoogleClient(): Google_Client
     {
         $client = new Google_Client();
-        $client->setClientId(env('GOOGLE_CONTACT_CLIENT_ID'));
-        $client->setClientSecret(env('GOOGLE_CONTACT_CLIENT_SECRET'));
-        $client->setRedirectUri(env('GOOGLE_CONTACT_REDIRECT'));
+        $client->setClientId(env('GOOGLE_CLIENT_ID'));
+        $client->setClientSecret(env('GOOGLE_CLIENT_SECRET'));
+        $client->setRedirectUri(env('GOOGLE_REDIRECT_CONTACT'));
         $client->addScope(Google_Service_PeopleService::CONTACTS_READONLY);
         $client->setAccessType('offline');
         return $client;
