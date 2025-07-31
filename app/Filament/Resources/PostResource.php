@@ -24,8 +24,6 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                \Filament\Forms\Components\Hidden::make('user_id')
-                    ->default(fn() => \Illuminate\Support\Facades\Auth::user()?->uuid),
                 Forms\Components\Grid::make(2)
                     ->schema([
                         \Filament\Forms\Components\FileUpload::make('image')
@@ -36,13 +34,7 @@ class PostResource extends Resource
                             ->directory('posts')
                             ->enableOpen()
                             // ->enableDownload()
-                            ->maxSize(2048)
-                            ->deleteUploadedFileUsing(function ($file, $record) {
-                                \Illuminate\Support\Facades\Storage::disk('public')->delete($file);
-                                $record->update([
-                                    'image' => null,
-                                ]);
-                            }),
+                            ->maxSize(2048),
                     ]),
                 \Filament\Forms\Components\TextInput::make('title')
                     ->label('Title')

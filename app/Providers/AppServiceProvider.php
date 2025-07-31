@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\User::observe(\App\Observers\UserObserver::class);
         \App\Models\Setting::observe(\App\Observers\SettingObserver::class);
         \App\Models\SettingItem::observe(\App\Observers\SettingItemObserver::class);
+        \App\Models\Post::observe(\App\Observers\PostObserver::class);
 
         \Illuminate\Support\Facades\View::composer('*', function ($view) {
             $services = \App\Models\Service::where('is_active', true)
