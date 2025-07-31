@@ -110,11 +110,11 @@ class GoogleContactController extends Controller
         return $this->fetchAndStoreContacts($client, true);
     }
 
-    public function resetToken()
+    public function logout()
     {
         session()->forget('google_token');
         session()->forget('google_contacts');
-        return redirect()->route('google-contact.redirect');
+        return redirect()->route('home.index');
     }
 
     public function backup()
