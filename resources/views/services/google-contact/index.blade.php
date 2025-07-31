@@ -19,7 +19,7 @@
                     <a href="{{ route('google-contact.backup') }}">
                         <button type="button" class="bg-green-500 hover:bg-green-600 duration-300 text-white rounded py-1 px-2 text-sm">Backup Data</button>
                     </a>
-                    <a href="{{ route('google-contact.reset-token') }}">
+                    <a href="{{ route('google-contact.logout') }}">
                         <button type="button" class="bg-red-500 hover:bg-red-600 duration-300 text-white rounded py-1 px-2 text-sm">Logout</button>
                     </a>
                 </div>
