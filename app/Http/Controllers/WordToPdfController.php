@@ -28,7 +28,7 @@ class WordToPdfController extends Controller
             }
         }
 
-        return view('services.word-to-pdf.index');
+        return view('services.word-to-pdf.index', compact('service'));
     }
 
     public function convert(Request $request)

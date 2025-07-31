@@ -24,7 +24,7 @@ class TikTokSaverController extends Controller
             }
         }
 
-        return view('services.tiktok-saver.index');
+        return view('services.tiktok-saver.index', compact('service'));
     }
 
     public function download(Request $request)

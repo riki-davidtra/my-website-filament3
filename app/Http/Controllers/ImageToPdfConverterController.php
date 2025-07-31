@@ -24,7 +24,7 @@ class ImageToPdfConverterController extends Controller
             }
         }
 
-        return view('services.image-to-pdf.index');
+        return view('services.image-to-pdf.index', compact('service'));
     }
 
     public function convert(Request $request)

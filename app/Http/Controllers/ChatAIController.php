@@ -34,7 +34,7 @@ class ChatAIController extends Controller
             $history = array_filter($raw, fn($h) => in_array($h['role'], ['user', 'assistant']));
         }
 
-        return view('services.chat-ai.index', compact('history'));
+        return view('services.chat-ai.index', compact('service', 'history'));
     }
 
     public function chat(Request $request)

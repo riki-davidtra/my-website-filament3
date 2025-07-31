@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
-@push('title', 'Chat AI')
+@push('title', $service->title)
 
 @section('content')
     <section class="py-24 min-h-screen">
         <div class="px-4 sm:px-6 lg:px-12 xl:px-20">
+            <h2 class="text-3xl font-bold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500">{{ $service->title }}</h2>
+
+            <p class="text-center text-base text-gray-300 max-w-xl mx-auto mb-10">
+                {{ $service->description }}
+            </p>
+
             <div class="max-w-4xl mx-auto w-full">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500">

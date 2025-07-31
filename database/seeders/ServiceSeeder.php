@@ -41,15 +41,15 @@ class ServiceSeeder extends Seeder
                 'is_popular'  => true,
             ],
             [
-                'title'       => 'Image Compressor',
-                'description' => 'Kompres ukuran gambar tanpa mengurangi kualitas secara signifikan.',
-                'content'     => '<p>Kurangi ukuran file gambar untuk mempercepat loading website atau menghemat ruang penyimpanan. Mendukung format JPG, PNG, dan lainnya.</p>',
-                'is_popular'  => false,
-            ],
-            [
                 'title'       => 'Google Contact',
                 'description' => 'Lihat dan kelola kontak dari akun Google Anda secara langsung.',
                 'content'     => '<p>Hubungkan akun Google Anda dan lihat daftar kontak Anda secara langsung. Mendukung pengambilan nama, email, dan nomor telepon menggunakan Google People API.</p>',
+                'is_popular'  => true,
+            ],
+            [
+                'title'       => 'Image Compressor',
+                'description' => 'Kompres ukuran gambar tanpa mengurangi kualitas secara signifikan.',
+                'content'     => '<p>Kurangi ukuran file gambar untuk mempercepat loading website atau menghemat ruang penyimpanan. Mendukung format JPG, PNG, dan lainnya.</p>',
                 'is_popular'  => false,
             ],
         ];
