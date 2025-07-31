@@ -110,12 +110,15 @@ class ServiceResource extends Resource
                 Tables\Columns\TextColumn::make('view_total')
                     ->label('Views')
                     ->sortable()
+                    ->searchable()
                     ->badge(),
                 Tables\Columns\IconColumn::make('is_popular')
                     ->label('Popular')
+                    ->sortable()
                     ->boolean(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Active')
+                    ->sortable()
                     ->boolean(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')

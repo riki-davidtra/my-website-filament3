@@ -75,10 +75,7 @@ class MessageResource extends Resource
                 Tables\Columns\IconColumn::make('is_read')
                     ->label('Read')
                     ->sortable()
-                    ->searchable()
-                    ->boolean()
-                    ->trueIcon('heroicon-o-check-circle')
-                    ->falseIcon('heroicon-o-x-circle'),
+                    ->boolean(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')
                     ->sortable()
