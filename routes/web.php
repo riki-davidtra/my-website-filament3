@@ -37,6 +37,6 @@ Route::get('/google-contact', [App\Http\Controllers\GoogleContactController::cla
 Route::get('/google-contact/redirect', [App\Http\Controllers\GoogleContactController::class, 'redirect'])->name('google-contact.redirect');
 Route::get('/google-contact/callback', [App\Http\Controllers\GoogleContactController::class, 'callback'])->name('google-contact.callback');
 Route::get('/google-contact/refresh', [App\Http\Controllers\GoogleContactController::class, 'refresh'])->name('google-contact.refresh');
-Route::get('/google-contact/logout', [App\Http\Controllers\GoogleContactController::class, 'resetToken'])->name('google-contact.logout');
+Route::get('/google-contact/logout', [App\Http\Controllers\GoogleContactController::class, 'logout'])->name('google-contact.logout');
 Route::post('/google-contact/bulk-update', [App\Http\Controllers\GoogleContactController::class, 'bulkUpdate'])->name('google-contact.bulk-update');
 Route::get('/google-contact/backup', [App\Http\Controllers\GoogleContactController::class, 'backup'])->name('google-contact.backup');
