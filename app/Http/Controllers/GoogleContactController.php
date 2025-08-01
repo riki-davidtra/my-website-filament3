@@ -229,4 +229,48 @@ class GoogleContactController extends Controller
 
         return redirect()->route('google-contact.index')->with('status', 'Kontak berhasil diperbarui.');
     }
+
+    public function addContact(Request $request)
+    {
+        $request->validate([
+            'name'  => 'required|string|max:255',
+            'phone' => 'required|string|max:50',
+        ]);
+
+        if (!session()->has('google_token')) {
+            return redirect()->route('google-contact.redirect');
+        }
+
+        $client = $this->createGoogleClient();
+        $client->setAccessToken(session('google_token'));
+
+        if ($client->isAccessTokenExpired()) {
+            $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
+            session(['google_token' => $client->getAccessToken()]);
+        }
+
+        $service = new Google_Service_PeopleService($client);
+
+        $person = new Google_Service_PeopleService_Person();
+
+        $name = new Google_Service_PeopleService_Name();
+        $name->setGivenName($request->name);
+        $person->setNames([$name]);
+
+        $phone = new Google_Service_PeopleService_PhoneNumber();
+        $phone->setValue($request->phone);
+        $phone->setType('mobile');
+        $person->setPhoneNumbers([$phone]);
+
+        try {
+            $service->people->createContact($person);
+        } catch (\Exception $e) {
+            Log::error('Failed to add new contact: ' . $e->getMessage());
+            return redirect()->route('google-contact.index')->with('error', 'Failed to add contact.');
+        }
+
+        $this->fetchAndStoreContacts($client, true);
+
+        return redirect()->route('google-contact.index')->with('status', 'Contact added successfully.');
+    }
 }
