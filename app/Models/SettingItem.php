@@ -12,17 +12,13 @@ class SettingItem extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $primaryKey = 'uuid';
-
     protected $fillable = [
-        'setting_uuid',
+        'setting_id',
         'name',
         'key',
         'type',
         'value',
     ];
-
-    public $incrementing = true;
 
     public function uniqueIds(): array
     {
@@ -32,6 +28,11 @@ class SettingItem extends Model
     public function newUniqueId(): string
     {
         return (string) Uuid::uuid7();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'uuid';
     }
 
     public function setting()

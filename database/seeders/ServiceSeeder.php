@@ -56,7 +56,7 @@ class ServiceSeeder extends Seeder
 
         foreach ($services as $index => $item) {
             Service::create([
-                'category_uuid' => $category->uuid,
+                'category_id' => $category->id,
                 'title'         => $item['title'],
                 'slug'          => Str::slug($item['title']),
                 'thumbnail'     => null,

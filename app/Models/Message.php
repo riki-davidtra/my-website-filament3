@@ -11,15 +11,11 @@ class Message extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $primaryKey = 'uuid';
-
     protected $guarded = [];
 
     protected $casts = [
         'is_read' => 'boolean',
     ];
-
-    public $incrementing = true;
 
     public function uniqueIds(): array
     {
@@ -29,5 +25,10 @@ class Message extends Model
     public function newUniqueId(): string
     {
         return (string) Uuid::uuid7();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'uuid';
     }
 }

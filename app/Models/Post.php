@@ -11,11 +11,7 @@ class Post extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $primaryKey = 'uuid';
-
     protected $guarded = [];
-
-    public $incrementing = true;
 
     public function uniqueIds(): array
     {
@@ -27,9 +23,14 @@ class Post extends Model
         return (string) Uuid::uuid7();
     }
 
+    public function getRouteKeyName()
+    {
+        return 'uuid';
+    }
+
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_uuid', 'uuid');
+        return $this->belongsTo(User::class);
     }
 
     public function category()

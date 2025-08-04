@@ -10,8 +10,8 @@ class PostObserver
 {
     public function creating(Post $post): void
     {
-        if (empty($post->user_uuid)) {
-            $post->user_uuid = Auth::user()->uuid;
+        if (empty($post->user_id)) {
+            $post->user_id = Auth::user()->uuid;
         }
     }
 
