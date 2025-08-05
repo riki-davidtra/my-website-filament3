@@ -43,6 +43,10 @@ class MessageResource extends Resource
                     ->maxLength(100)
                     ->disabled()
                     ->dehydrated(false),
+                \Filament\Forms\Components\DateTimePicker::make('created_at')
+                    ->label('Send At')
+                    ->disabled()
+                    ->dehydrated(false),
                 Forms\Components\Toggle::make('is_read')
                     ->label('Read Status')
                     ->inline(false)
