@@ -20,17 +20,22 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        if (!config('seeder.skip_user')) {
-            $this->call(UserSeeder::class);
-        }
-
-        $this->call([
+        $seeders = [
+            UserSeeder::class,
             SyncPermissionsSeeder::class,
             RolePermissionSeeder::class,
             SettingSeeder::class,
             CategorySeeder::class,
             PostSeeder::class,
             ServiceSeeder::class,
-        ]);
+        ];
+
+        foreach ($seeders as $seeder) {
+            $basename = class_basename($seeder);
+            if (\Illuminate\Support\Facades\Config::get("seeder.skip.{$basename}", false) === true) {
+                continue;
+            }
+            $this->call($seeder);
+        }
     }
 }
