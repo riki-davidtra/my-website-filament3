@@ -100,42 +100,42 @@ class ServiceResource extends Resource
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('title')
                     ->label('Title')
-                    ->sortable()
+                    ->limit(50)
                     ->searchable()
-                    ->limit(50),
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('category.name')
                     ->label('Category')
-                    ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('view_total')
                     ->label('Views')
-                    ->sortable()
+                    ->badge()
                     ->searchable()
-                    ->badge(),
+                    ->sortable(),
                 Tables\Columns\IconColumn::make('is_popular')
                     ->label('Popular')
-                    ->sortable()
-                    ->boolean(),
+                    ->boolean()
+                    ->sortable(),
                 Tables\Columns\IconColumn::make('is_active')
                     ->label('Active')
-                    ->sortable()
-                    ->boolean(),
+                    ->boolean()
+                    ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')
-                    ->sortable()
-                    ->searchable()
                     ->dateTime()
                     ->since()
                     ->dateTimeTooltip()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->searchable()
+                    ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated At')
-                    ->sortable()
-                    ->searchable()
                     ->dateTime()
                     ->since()
                     ->dateTimeTooltip()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('category_id')

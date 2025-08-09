@@ -86,40 +86,42 @@ class PostResource extends Resource
             ->columns([
                 \Filament\Tables\Columns\TextColumn::make('title')
                     ->label('Title')
-                    ->sortable()
+                    ->limit(50)
                     ->searchable()
-                    ->limit(50),
+                    ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('category.name')
                     ->label('Category')
-                    ->sortable()
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('view_total')
                     ->label('Views')
-                    ->sortable()
-                    ->badge(),
+                    ->badge()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('status')
                     ->label('Status')
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {
                         'draft'   => 'gray',
                         'publish' => 'primary',
-                    }),
+                    })
+                    ->searchable()
+                    ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')
-                    ->sortable()
-                    ->searchable()
                     ->dateTime()
                     ->since()
                     ->dateTimeTooltip()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->searchable()
+                    ->sortable(),
                 \Filament\Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated At')
-                    ->sortable()
-                    ->searchable()
                     ->dateTime()
                     ->since()
                     ->dateTimeTooltip()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('category_id')

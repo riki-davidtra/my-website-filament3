@@ -18,17 +18,10 @@ class MigrateFreshPartial extends Command
             'users',
             'sessions',
             'migrations',
-            'password_reset_tokens',
-            'permissions',
-            'roles',
-            'model_has_permissions',
-            'model_has_roles',
-            'role_has_permissions',
+            'password_reset_tokens', 
         ];
         $skipSeeders    = [
-            'UserSeeder',
-            'SyncPermissionsSeeder',
-            'RolePermissionSeeder',
+            'UserSeeder', 
         ];
 
         // DROPPING
