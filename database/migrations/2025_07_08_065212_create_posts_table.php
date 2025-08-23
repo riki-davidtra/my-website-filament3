@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->foreignId('user_id')->constrained('users', 'id')->nullOnDelete();
-            $table->foreignId('category_id')->constrained('categories', 'id')->nullOnDelete();
+            $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
             $table->string('image')->nullable();
             $table->string('title', 255);
             $table->enum('status', ['draft', 'publish'])->default('draft');
