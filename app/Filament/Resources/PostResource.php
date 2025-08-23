@@ -26,7 +26,7 @@ class PostResource extends Resource
             ->schema([
                 Forms\Components\Grid::make(2)
                     ->schema([
-                        \Filament\Forms\Components\FileUpload::make('image')
+                        Forms\Components\FileUpload::make('image')
                             ->label('Image')
                             ->nullable()
                             ->image()
@@ -36,12 +36,12 @@ class PostResource extends Resource
                             // ->enableDownload()
                             ->maxSize(2048),
                     ]),
-                \Filament\Forms\Components\TextInput::make('title')
+                Forms\Components\TextInput::make('title')
                     ->label('Title')
                     ->required()
                     ->string()
                     ->maxLength(255),
-                \Filament\Forms\Components\Select::make('category_id')
+                Forms\Components\Select::make('category_id')
                     ->label('Category')
                     ->required()
                     ->searchable()
@@ -49,7 +49,7 @@ class PostResource extends Resource
                     ->relationship('category', 'name', function ($query) {
                         $query->orderBy('name', 'asc');
                     }),
-                \Filament\Forms\Components\RichEditor::make('content')
+                Forms\Components\RichEditor::make('content')
                     ->label('Content')
                     ->nullable()
                     ->toolbarButtons([
@@ -62,13 +62,13 @@ class PostResource extends Resource
                         'redo'
                     ])
                     ->columnSpanFull(),
-                \Filament\Forms\Components\TextInput::make('view_total')
+                Forms\Components\TextInput::make('view_total')
                     ->label('View Total')
                     ->numeric()
                     ->default(0)
                     ->disabled()
                     ->dehydrated(false),
-                \Filament\Forms\Components\Select::make('status')
+                Forms\Components\Select::make('status')
                     ->label('Status')
                     ->required()
                     ->options([
@@ -84,12 +84,12 @@ class PostResource extends Resource
         return $table
             ->defaultSort('created_at', 'desc')
             ->columns([
-                \Filament\Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title')
                     ->label('Title')
                     ->limit(50)
                     ->searchable()
                     ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('category.name')
+                Tables\Columns\TextColumn::make('category.name')
                     ->label('Category')
                     ->searchable()
                     ->sortable(),
@@ -106,7 +106,7 @@ class PostResource extends Resource
                     })
                     ->searchable()
                     ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->since()
@@ -114,7 +114,7 @@ class PostResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable()
                     ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->dateTime()
                     ->since()

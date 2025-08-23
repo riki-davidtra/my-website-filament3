@@ -26,7 +26,7 @@ class ServiceResource extends Resource
             ->schema([
                 Forms\Components\Grid::make(2)
                     ->schema([
-                        \Filament\Forms\Components\FileUpload::make('thumbnail')
+                        Forms\Components\FileUpload::make('thumbnail')
                             ->label('Thumbnail')
                             ->nullable()
                             ->image()
@@ -42,12 +42,12 @@ class ServiceResource extends Resource
                                 ]);
                             }),
                     ]),
-                \Filament\Forms\Components\TextInput::make('title')
+                Forms\Components\TextInput::make('title')
                     ->label('Title')
                     ->required()
                     ->string()
                     ->maxLength(255),
-                \Filament\Forms\Components\Select::make('category_id')
+                Forms\Components\Select::make('category_id')
                     ->label('Category')
                     ->required()
                     ->searchable()
@@ -64,7 +64,7 @@ class ServiceResource extends Resource
                     ->label('Description')
                     ->rows(4)
                     ->nullable(),
-                \Filament\Forms\Components\RichEditor::make('content')
+                Forms\Components\RichEditor::make('content')
                     ->label('Content')
                     ->nullable()
                     ->toolbarButtons([
@@ -77,7 +77,7 @@ class ServiceResource extends Resource
                         'redo'
                     ])
                     ->columnSpanFull(),
-                \Filament\Forms\Components\TextInput::make('view_total')
+                Forms\Components\TextInput::make('view_total')
                     ->label('View Total')
                     ->numeric()
                     ->default(0)
@@ -98,7 +98,7 @@ class ServiceResource extends Resource
             ->reorderable('order')
             ->defaultSort('order')
             ->columns([
-                \Filament\Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('title')
                     ->label('Title')
                     ->limit(50)
                     ->searchable()
@@ -120,7 +120,7 @@ class ServiceResource extends Resource
                     ->label('Active')
                     ->boolean()
                     ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->since()
@@ -128,7 +128,7 @@ class ServiceResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable()
                     ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->dateTime()
                     ->since()

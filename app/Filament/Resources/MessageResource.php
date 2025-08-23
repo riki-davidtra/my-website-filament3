@@ -23,27 +23,27 @@ class MessageResource extends Resource
     {
         return $form
             ->schema([
-                \Filament\Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name')
                     ->label('Name')
                     ->required()
                     ->string()
                     ->maxLength(255),
-                \Filament\Forms\Components\TextInput::make('email')
+                Forms\Components\TextInput::make('email')
                     ->label('Email')
                     ->email()
                     ->maxLength(255),
-                \Filament\Forms\Components\Textarea::make('message')
+                Forms\Components\Textarea::make('message')
                     ->label('Message')
                     ->required()
                     ->maxLength(1000)
                     ->columnSpanFull()
                     ->rows(6),
-                \Filament\Forms\Components\TextInput::make('ip_address')
+                Forms\Components\TextInput::make('ip_address')
                     ->label('IP Address')
                     ->maxLength(100)
                     ->disabled()
                     ->dehydrated(false),
-                \Filament\Forms\Components\DateTimePicker::make('created_at')
+                Forms\Components\DateTimePicker::make('created_at')
                     ->label('Send At')
                     ->disabled()
                     ->dehydrated(false),
@@ -59,20 +59,20 @@ class MessageResource extends Resource
         return $table
             ->defaultSort('created_at', 'desc')
             ->columns([
-                \Filament\Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('name')
                     ->label('Name')
                     ->sortable()
                     ->searchable(),
-                \Filament\Tables\Columns\TextColumn::make('email')
+                Tables\Columns\TextColumn::make('email')
                     ->label('Email')
                     ->sortable()
                     ->searchable(),
-                \Filament\Tables\Columns\TextColumn::make('message')
+                Tables\Columns\TextColumn::make('message')
                     ->label('Message')
                     ->sortable()
                     ->searchable()
                     ->limit(50),
-                \Filament\Tables\Columns\TextColumn::make('ip_address')
+                Tables\Columns\TextColumn::make('ip_address')
                     ->label('IP Address')
                     ->sortable()
                     ->searchable(),
@@ -80,7 +80,7 @@ class MessageResource extends Resource
                     ->label('Read')
                     ->sortable()
                     ->boolean(),
-                \Filament\Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')
                     ->sortable()
                     ->searchable()
@@ -88,7 +88,7 @@ class MessageResource extends Resource
                     ->since()
                     ->dateTimeTooltip()
                     ->toggleable(isToggledHiddenByDefault: true),
-                \Filament\Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->sortable()
                     ->searchable()

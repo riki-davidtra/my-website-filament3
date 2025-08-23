@@ -24,7 +24,7 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                \Filament\Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name')
                     ->label('Name')
                     ->required()
                     ->string()
@@ -37,11 +37,11 @@ class CategoryResource extends Resource
         return $table
             ->defaultSort('created_at', 'desc')
             ->columns([
-                \Filament\Tables\Columns\TextColumn::make('name')
+                Tables\Columns\TextColumn::make('name')
                     ->label('Name')
                     ->searchable()
                     ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('created_at')
+                Tables\Columns\TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->since()
@@ -49,7 +49,7 @@ class CategoryResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable()
                     ->sortable(),
-                \Filament\Tables\Columns\TextColumn::make('updated_at')
+                Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated At')
                     ->dateTime()
                     ->since()
